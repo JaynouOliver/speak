@@ -1,5 +1,5 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 var electron_1 = require("electron");
 var path = require("path");
 var isDev = process.env.NODE_ENV !== 'production';
@@ -11,8 +11,8 @@ function createWindow() {
         minHeight: 800,
         webPreferences: {
             nodeIntegration: true,
-            contextIsolation: false,
-        },
+            contextIsolation: false
+        }
     });
     var startUrl = isDev
         ? 'http://localhost:3000'
