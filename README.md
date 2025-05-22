@@ -1,37 +1,42 @@
-# Speak
+# Electron React Application
 
-A macOS application built with SwiftUI that provides a modern and intuitive interface for voice-to-text functionality.
+This is an Electron application built with React.
 
-## Features
+## Prerequisites
 
-- Clean and modern UI inspired by Flow Pro
-- Dark mode support
-- Sidebar navigation
-- Statistics dashboard
-- Todo list integration
-- Trial management
-
-## Requirements
-
-- macOS 11.0 or later
-- Xcode 13.0 or later
-- Swift 5.5 or later
+- Node.js (v14 or higher)
+- npm (v6 or higher)
 
 ## Installation
 
-1. Clone the repository
+1. Install the main dependencies:
 ```bash
-git clone https://github.com/JaynouOliver/speak.git
+npm install
 ```
 
-2. Open the project in Xcode
+2. The React app dependencies will be installed automatically through the postinstall script.
+
+## Development
+
+To run the application in development mode:
+
 ```bash
-cd speak
-open Speak.xcodeproj
+npm run dev
 ```
 
-3. Build and run the project in Xcode
+This will start both the Electron app and the React development server.
 
-## License
+## Building
 
-This project is licensed under the MIT License - see the LICENSE file for details. 
+To build the React app:
+
+```bash
+npm run build
+```
+
+## Project Structure
+
+- `main.js` - Main Electron process file
+- `src/` - React application directory
+  - `src/public/` - Static files
+  - `src/src/` - React source code 
