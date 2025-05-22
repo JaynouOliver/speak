@@ -23,7 +23,6 @@ const pageContent = {
 };
 
 const App: React.FC = () => {
-  const [sidebarOpen, setSidebarOpen] = useState(true);
   const [activeTab, setActiveTab] = useState('home');
   const [history, setHistory] = useState<string[]>(['home']);
   const [historyIndex, setHistoryIndex] = useState(0);
@@ -54,22 +53,13 @@ const App: React.FC = () => {
 
   return (
     <div className="app-container">
-      <aside className={`sidebar vertical${sidebarOpen ? '' : ' collapsed'}`}>
+      <aside className="sidebar vertical">
         <div className="sidebar-header">
           <div className="logo-section">
             <span className="logo">🎙️</span>
-            {sidebarOpen && (
-              <div className="app-name">
-                Speak
-              </div>
-            )}
-            <button
-              className="sidebar-toggle"
-              onClick={() => setSidebarOpen(!sidebarOpen)}
-              title={sidebarOpen ? 'Collapse sidebar' : 'Expand sidebar'}
-            >
-              {sidebarOpen ? '◀' : '▶'}
-            </button>
+            <div className="app-name">
+              Speak
+            </div>
           </div>
         </div>
         
@@ -82,7 +72,7 @@ const App: React.FC = () => {
               title={tab.label}
             >
               <span className="tab-icon">{tab.icon}</span>
-              {sidebarOpen && <span className="tab-label">{tab.label}</span>}
+              <span className="tab-label">{tab.label}</span>
             </button>
           ))}
         </div>
