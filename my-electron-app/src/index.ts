@@ -1,7 +1,11 @@
-// Main entry point - using the new modular structure
-import { app } from 'electron';
+// Main entry point - using the singleton pattern
 import { Application } from './main/index';
 
-// Start the application
-const application = new Application();
-application.initialize().catch(console.error);
+// Use the singleton pattern to get the application instance
+console.log('Application entry point starting');
+const application = Application.getInstance();
+
+// Initialize the application with proper error handling
+application.initialize().catch(error => {
+  console.error('Error initializing application:', error);
+});
