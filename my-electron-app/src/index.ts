@@ -14,6 +14,7 @@ if (require('electron-squirrel-startup')) {
 }
 
 const createWindow = (): void => {
+  // Create main window first
   mainWindow = new BrowserWindow({
     height: 600,
     width: 800,
@@ -23,6 +24,11 @@ const createWindow = (): void => {
       preload: MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY,
     },
   });
+
+  // Ensure dock is visible for main app on macOS
+  if (process.platform === 'darwin' && app.dock) {
+    app.dock.show();
+  }
 
   mainWindow.on('closed', () => {
     console.log('Main window closed, destroying overlay');
@@ -41,9 +47,7 @@ const createWindow = (): void => {
 
   mainWindow.loadURL(MAIN_WINDOW_WEBPACK_ENTRY);
 
-  if (process.env.NODE_ENV === 'development') {
-    mainWindow.webContents.openDevTools();
-  }
+  // DevTools can be manually opened in development mode
 
   createOverlayWindow();
   setupGlobalShortcuts();
